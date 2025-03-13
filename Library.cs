@@ -1,122 +1,201 @@
-﻿using System; // Подключение библиотеки для работы со стандартными классами C#
+﻿using System;
 
-public class Library
+public interface ILibraryDetails
 {
-    
-    public string Name { get; set; } 
-    public int BookFund { get; set; } // Количество книг в библиотечном фонде
-    public int ReadingRoomSeats { get; set; } // Количество мест в читальном зале
-    public double SubscriptionFee { get; set; } // Абонентская плата за посещение
-    public bool HasDigitalLibrary { get; set; } // Наличие цифровой библиотеки (true - есть, false - нет)
-    public int FoundedYear { get; set; } //Год основания библиотеки
+    int GetBookFund();
+    int GetReadingRoomSeats();
+    int GetFoundedYear();
+    string GetPhoneNumber();
+    bool GetHasDigitalLibrary();
+    string GetField(string fieldName, string libraryName);
+    string GetHexBookFund();
+}
 
-    // Статическое поле для подсчета количества созданных объектов
-    public static int ObjectCount { get; private set; } = 0;
 
-    // Конструкторы
+public class LibraryDetails : ILibraryDetails
+{
+    public string Name { get; set; }
+    public int BookFund { get; set; }
+    public int ReadingRoomSeats { get; set; }
+    public int FoundedYear { get; set; }
+    public string PhoneNumber { get; set; }
+    public bool HasDigitalLibrary { get; set; }
 
-    // Конструктор без параметров, увеличивает счетчик созданных объектов
-    public Library()
+    public LibraryDetails(string _name,int bookFund, int readingRoomSeats, int foundedYear, string phoneNumber, bool hasDigitalLibrary)
     {
-        ObjectCount++;
+        _name = Name;
+        BookFund = bookFund;
+        ReadingRoomSeats = readingRoomSeats;
+        FoundedYear = foundedYear;
+        PhoneNumber = phoneNumber;
+        HasDigitalLibrary = hasDigitalLibrary;
     }
 
-    // Конструктор с одним параметром (название)
-    public Library(string name) : this()
-    {
-        Name = name; // Инициализируем название библиотеки
-    }
+    public int GetBookFund() => BookFund;
+    public int GetReadingRoomSeats() => ReadingRoomSeats;
+    public int GetFoundedYear() => FoundedYear;
+    public string GetPhoneNumber() => PhoneNumber;
+    public bool GetHasDigitalLibrary() => HasDigitalLibrary;
 
-    // Конструктор с двумя параметрами (название и фонд книг)
-    public Library(string name, int bookFund) : this(name)
-    {
-        BookFund = bookFund; // Инициализируем количество книг в фонде
-    }
-
-    // Конструктор с шестью параметрами, заполняет все поля
-    public Library(string name, int bookFund, int seats, double fee,  int foundedYear) : this(name, bookFund)
-    {
-        ReadingRoomSeats = seats; // Устанавливаем количество мест в читальном зале
-        SubscriptionFee = fee; // Устанавливаем абонентскую плату 
-        FoundedYear = foundedYear; // Устанавливаем дату основания
-    }
-
-    // Переопределенный метод ToString(), возвращает строковое представление объекта
-    public override string ToString()
-    {
-        return $"{Name}, {ReadingRoomSeats}, {FoundedYear}, " +
-               $"{BookFund}, {SubscriptionFee}";
-    }
-
-    // Метод для получения значения конкретного поля по его названию
-    public string GetField(string fieldName)
+    public string GetField(string fieldName, string libraryName)
     {
         return fieldName switch
         {
-            "Название" => $"Название: {Name}",
+            "Название" => $"Название: {libraryName}",
             "Фонд книг" => $"Фонд книг: {BookFund}",
             "Места" => $"Мест в зале: {ReadingRoomSeats}",
-            "Абонентская плата" => $"Абонентская плата: {SubscriptionFee}",
             "Год основания" => $"Год основания: {FoundedYear}",
+            "Номер телефона" => $"Номер телефона: {PhoneNumber}",
+            "Электронная библиотека" => $"Электронная библиотека: {HasDigitalLibrary}",
             _ => "Некорректное поле"
         };
     }
 
-    // Метод для вывода количества книг в шестнадцатеричном представлении
     public string GetHexBookFund()
     {
         return $"Фонд в 16-ричном формате: {BookFund:X}";
     }
+}
 
-    // Порождающий паттерн - Строитель (Builder);
-    public class LibraryBuilder
+// Abstraction
+public abstract class Library
+{
+    protected ILibraryDetails _libraryDetails;
+
+    public string Name { get; set; }
+
+    public Library(ILibraryDetails libraryDetails)
     {
-        private readonly Library _library;
+        _libraryDetails = libraryDetails;
+    }
 
-        public LibraryBuilder()
+    public abstract override string ToString();
+
+    public abstract string GetField(string fieldName);
+
+    public abstract string GetHexBookFund();
+}
+
+// Refined Abstraction: School Library
+public class SchoolLibrary : Library
+{
+    public SchoolLibrary(ILibraryDetails libraryDetails) : base(libraryDetails)
+    {
+    }
+
+    public override string ToString()
+    {
+        return $"{Name}, {_libraryDetails.GetReadingRoomSeats()}, {_libraryDetails.GetFoundedYear()}, " +
+               $"{_libraryDetails.GetBookFund()}, Has Digital Library: {_libraryDetails.GetHasDigitalLibrary()}";
+    }
+
+    public override string GetField(string fieldName)
+    {
+        return _libraryDetails.GetField(fieldName, Name);  
+    }
+
+    public override string GetHexBookFund()
+    {
+        return _libraryDetails.GetHexBookFund();
+    }
+}
+
+// Refined Abstraction: University Library
+public class UniversityLibrary : Library
+{
+    public UniversityLibrary(ILibraryDetails libraryDetails) : base(libraryDetails)
+    {
+    }
+
+    public override string ToString()
+    {
+        return $"{Name}, {_libraryDetails.GetReadingRoomSeats()}, {_libraryDetails.GetFoundedYear()}, " +
+               $"{_libraryDetails.GetBookFund()}, Has Digital Library: {_libraryDetails.GetHasDigitalLibrary()}";
+    }
+
+    public override string GetField(string fieldName)
+    {
+        return _libraryDetails.GetField(fieldName, Name); // Pass Name
+    }
+
+    public override string GetHexBookFund()
+    {
+        return _libraryDetails.GetHexBookFund();
+    }
+}
+
+public class LibraryBuilder
+{
+    private string _name;
+    private int _bookFund;
+    private int _readingRoomSeats;
+    private int _foundedYear;
+    private string _phoneNumber;
+    private bool _hasDigitalLibrary;
+    private LibraryType _libraryType;
+
+    public enum LibraryType { School, University }
+
+    public LibraryBuilder SetName(string name)
+    {
+        _name = name;
+        return this;
+    }
+
+    public LibraryBuilder SetBookFund(int bookFund)
+    {
+        _bookFund = bookFund;
+        return this;
+    }
+
+    public LibraryBuilder SetReadingRoomSeats(int seats)
+    {
+        _readingRoomSeats = seats;
+        return this;
+    }
+
+    public LibraryBuilder SetFoundedYear(int year)
+    {
+        _foundedYear = year;
+        return this;
+    }
+
+    public LibraryBuilder SetPhoneNumber(string phoneNumber)
+    {
+        _phoneNumber = phoneNumber;
+        return this;
+    }
+
+    public LibraryBuilder SetHasDigitalLibrary(bool hasDigital)
+    {
+        _hasDigitalLibrary = hasDigital;
+        return this;
+    }
+
+    public LibraryBuilder SetLibraryType(LibraryType libraryType)
+    {
+        _libraryType = libraryType;
+        return this;
+    }
+
+    public Library Build()
+    {
+        ILibraryDetails libraryDetails = new LibraryDetails(_name, _bookFund, _readingRoomSeats, _foundedYear, _phoneNumber, _hasDigitalLibrary);
+        Library library;
+
+        switch (_libraryType)
         {
-            _library = new Library(); // Создаем пустой объект
+            case LibraryType.School:
+                library = new SchoolLibrary(libraryDetails);
+                break;
+            case LibraryType.University:
+                library = new UniversityLibrary(libraryDetails);
+                break;
+            default:
+                throw new ArgumentException("Invalid library type");
         }
 
-        public LibraryBuilder SetName(string name)
-        {
-            _library.Name = name;
-            return this;
-        }
-
-        public LibraryBuilder SetBookFund(int bookFund)
-        {
-            _library.BookFund = bookFund;
-            return this;
-        }
-
-        public LibraryBuilder SetReadingRoomSeats(int seats)
-        {
-            _library.ReadingRoomSeats = seats;
-            return this;
-        }
-
-        public LibraryBuilder SetSubscriptionFee(double fee)
-        {
-            _library.SubscriptionFee = fee;
-            return this;
-        }
-
-        public LibraryBuilder SetDigitalLibrary(bool hasDigital)
-        {
-            _library.HasDigitalLibrary = hasDigital;
-            return this;
-        }
-
-        public LibraryBuilder SetFoundedYear(int year)
-        {
-            _library.FoundedYear = year;
-            return this;
-        }
-
-        public Library Build()
-        {
-            return _library; // Возвращаем готовый объект
-        }
+        library.Name = _name;
+        return library;
     }
 }
