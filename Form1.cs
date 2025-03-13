@@ -19,7 +19,7 @@ namespace _1_Lab_Library
         public Form1(int _max_libraries)
         {
             this.max_libraries = _max_libraries;
-            InitializeComponent();      
+            InitializeComponent();
             SubscribeToEvents();
             collections = new Collections();
 
@@ -36,31 +36,24 @@ namespace _1_Lab_Library
         private void SubscribeToEvents()
         {
             btnCreateLibrary.Click += btnCreateLibrary_Click;
-            btnShowHex.Click += btnShowHex_Click_1;
+            btnShowHex.Click += btnShowHex_Click;
             btnClose_Click.Click += btnClose_Click_Click;
             button1.Click += button1_Click;
             button2.Click += button2_Click;
-            btnUpdateFields.Click += btnUpdateFields_Click_1;
+            btnUpdateFields.Click += btnUpdateFields_Click;
             ContainerLibraries.SelectedIndexChanged += ContainerLibraries_SelectedIndexChanged;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            comboBox1.SelectedIndex = 0;
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnCreateLibrary_Click(object sender, EventArgs e)
         {
             string name = txtName.Text;
             string bookFundText = txtBookFund.Text;
             string seatsText = txtSeats.Text;
             string feeText = txtFee.Text;
-            bool hasDigitalLibrary = chkDigitalLibrary.Checked;
             string foundedYearText = txtFoundedYear.Text;
 
             try
@@ -78,7 +71,7 @@ namespace _1_Lab_Library
                 // Проверяем, какой метод создания объекта выбран
                 if (standartConstruct.Checked) // Стандартный конструктор
                 {
-                    currentLibrary = new Library(name, bookFund, seats, fee, hasDigitalLibrary, foundedYear);
+                    currentLibrary = new Library(name, bookFund, seats, fee, foundedYear);
                 }
                 else if (builder.Checked) // Строитель (Builder)
                 {
@@ -87,7 +80,6 @@ namespace _1_Lab_Library
                         .SetBookFund(bookFund)
                         .SetReadingRoomSeats(seats)
                         .SetSubscriptionFee(fee)
-                        .SetDigitalLibrary(hasDigitalLibrary)
                         .SetFoundedYear(foundedYear)
                         .Build();
                 }
@@ -104,7 +96,6 @@ namespace _1_Lab_Library
                 item.SubItems.Add(fee.ToString());
                 item.SubItems.Add(seats.ToString());
                 item.SubItems.Add(foundedYear.ToString());
-                item.SubItems.Add(hasDigitalLibrary ? "Да" : "Нет");
 
                 ContainerLibraries.Items.Add(item);
                 lblObjectCount.Text = $"Количество библиотек: {collections.Count}";
@@ -120,24 +111,18 @@ namespace _1_Lab_Library
             }
         }
 
-        private void btnShowHex_Click_1(object sender, EventArgs e)
+        private void btnShowHex_Click(object sender, EventArgs e)
         {
             if (currentLibrary != null)
             {
                 int number = int.Parse(txtBookFund.Text);
-                sixteenx.Text = $"Фонд в 16-ричной СС: {Convert.ToString(number,16)}";
+                sixteenx.Text = $"Фонд в 16-ричной СС: {Convert.ToString(number, 16)}";
             }
             else
             {
                 MessageBox.Show("Библиотека не создана!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }   
-
         private void btnClose_Click_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -162,15 +147,6 @@ namespace _1_Lab_Library
             }
         }
 
-        private void txtFoundedYear_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
         private void ContainerLibraries_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (ContainerLibraries.SelectedItems.Count > 0)
@@ -181,7 +157,6 @@ namespace _1_Lab_Library
                 txtSeats.Text = selectedItem.SubItems[3].Text;
                 txtFee.Text = selectedItem.SubItems[2].Text;
                 txtFoundedYear.Text = selectedItem.SubItems[4].Text;
-                chkDigitalLibrary.Checked = selectedItem.SubItems[5].Text == "Да"; 
             }
         }
         private void ClearTextonTextBox()
@@ -191,7 +166,6 @@ namespace _1_Lab_Library
             txtBookFund.Text = "";
             txtFoundedYear.Text = "";
             txtFee.Text = "";
-            chkDigitalLibrary.Checked = false;
             textfromcont.Text = "";
             sixteenx.Text = "";
         }
@@ -207,7 +181,7 @@ namespace _1_Lab_Library
             ClearTextonTextBox();
         }
 
-        private void btnUpdateFields_Click_1(object sender, EventArgs e)
+        private void btnUpdateFields_Click(object sender, EventArgs e)
         {
             if (currentLibrary != null && collections.Count > 0)
             {
@@ -217,11 +191,10 @@ namespace _1_Lab_Library
                     int bookFund = int.Parse(txtBookFund.Text.Trim());
                     int seats = int.Parse(txtSeats.Text.Trim());
                     int fee = int.Parse(txtFee.Text.Trim());
-                    bool hasDigitalLibrary = chkDigitalLibrary.Checked;
                     int foundedYear = int.Parse(txtFoundedYear.Text.Trim());
                     sixteenx.Text = $"Фонд в 16-ричной СС: {Convert.ToString(bookFund, 16)}";
                     // Обновление текущей библиотеки
-                    currentLibrary = new Library(name, bookFund, seats, fee, hasDigitalLibrary, foundedYear);
+                    currentLibrary = new Library(name, bookFund, seats, fee, foundedYear);
                     // Обновление библиотеки в коллекции
                     collections.UpdateLibrary(name, currentLibrary);
                     // Обновление ListView
@@ -233,7 +206,6 @@ namespace _1_Lab_Library
                         selectedItem.SubItems[2].Text = fee.ToString("");
                         selectedItem.SubItems[3].Text = seats.ToString();
                         selectedItem.SubItems[4].Text = foundedYear.ToString();
-                        selectedItem.SubItems[5].Text = hasDigitalLibrary ? "Да" : "Нет";
                     }
                 }
                 catch (FormatException)
@@ -246,30 +218,6 @@ namespace _1_Lab_Library
                 MessageBox.Show("Библиотека не создана!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ContainerLibraries_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ContainerLibraries_SelectedIndexChanged_2(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnCreateLibrary_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listViewforTests_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
         private void MeasurePerformance()
         {
             int count = 10000000;
@@ -278,7 +226,7 @@ namespace _1_Lab_Library
             Random random = new Random();
             Stopwatch stopwatch = new Stopwatch();
             // Очистка ListView перед новым тестом
-            listViewforTests.Items.Clear();     
+            listViewforTests.Items.Clear();
             stopwatch.Start();
             for (int i = 0; i < count; i++)
             {
@@ -290,7 +238,7 @@ namespace _1_Lab_Library
             listViewforTests.Items.Add(new ListViewItem(new[] { "Заполнение", "Dictionary", stopwatch.ElapsedMilliseconds.ToString() }));
             listViewforTests.Items.Add(new ListViewItem(new[] { "Заполнение", "Array", stopwatch.ElapsedMilliseconds.ToString() }));
 
-            
+
             stopwatch.Restart();
             foreach (var item in libraryDict.Values) { var temp = item.Name; }
             stopwatch.Stop();
@@ -311,7 +259,6 @@ namespace _1_Lab_Library
             for (int i = 0; i < count; i++) { var temp = libraryArray[random.Next(count)].Name; }
             stopwatch.Stop();
             listViewforTests.Items.Add(new ListViewItem(new[] { "Случайный доступ", "Array", stopwatch.ElapsedMilliseconds.ToString() }));
-
             MessageBox.Show("Тестирование завершено!", "Готово", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -320,31 +267,11 @@ namespace _1_Lab_Library
             MeasurePerformance();
         }
 
-        private void btnUpdateFields_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnShowHex_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void builder_CheckedChanged(object sender, EventArgs e)
         {
             if (builder.Checked)
             {
-                standartConstruct.Checked = false; // Снимаем выбор с другого чекбокса
+                standartConstruct.Checked = false;
             }
         }
 
@@ -352,7 +279,7 @@ namespace _1_Lab_Library
         {
             if (standartConstruct.Checked)
             {
-                builder.Checked = false; // Снимаем выбор с другого чекбокса
+                builder.Checked = false;
             }
         }
     }

@@ -2,8 +2,8 @@
 
 public class Library
 {
-    // Поля класса (автоматические свойства)
-    public string Name { get; set; } // Название библиотеки
+    
+    public string Name { get; set; } 
     public int BookFund { get; set; } // Количество книг в библиотечном фонде
     public int ReadingRoomSeats { get; set; } // Количество мест в читальном зале
     public double SubscriptionFee { get; set; } // Абонентская плата за посещение
@@ -34,11 +34,10 @@ public class Library
     }
 
     // Конструктор с шестью параметрами, заполняет все поля
-    public Library(string name, int bookFund, int seats, double fee, bool digitalLibrary, int foundedYear) : this(name, bookFund)
+    public Library(string name, int bookFund, int seats, double fee,  int foundedYear) : this(name, bookFund)
     {
         ReadingRoomSeats = seats; // Устанавливаем количество мест в читальном зале
-        SubscriptionFee = fee; // Устанавливаем абонентскую плату
-        HasDigitalLibrary = digitalLibrary; // Устанавливаем наличие цифровой библиотеки
+        SubscriptionFee = fee; // Устанавливаем абонентскую плату 
         FoundedYear = foundedYear; // Устанавливаем дату основания
     }
 
@@ -46,8 +45,7 @@ public class Library
     public override string ToString()
     {
         return $"{Name}, {ReadingRoomSeats}, {FoundedYear}, " +
-               $"{BookFund}, {SubscriptionFee}," +
-               $"{((HasDigitalLibrary)?"Да":"Нет")}";
+               $"{BookFund}, {SubscriptionFee}";
     }
 
     // Метод для получения значения конкретного поля по его названию
@@ -59,7 +57,6 @@ public class Library
             "Фонд книг" => $"Фонд книг: {BookFund}",
             "Места" => $"Мест в зале: {ReadingRoomSeats}",
             "Абонентская плата" => $"Абонентская плата: {SubscriptionFee}",
-            "Цифровая библиотека" => $"Цифровая библиотека: {HasDigitalLibrary}",
             "Год основания" => $"Год основания: {FoundedYear}",
             _ => "Некорректное поле"
         };
