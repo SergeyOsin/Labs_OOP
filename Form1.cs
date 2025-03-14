@@ -253,8 +253,6 @@ namespace _1_Lab_Library
 
                     // Обновляем отображение 16-ричного формата фонда книг
                     sixteenx.Text = $"Фонд в 16-ричной СС: {bookFund:X}";
-
-                    MessageBox.Show("Библиотека успешно обновлена!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (FormatException)
                 {
