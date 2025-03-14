@@ -57,7 +57,7 @@ public class LibraryDetails : ILibraryDetails
     }
 }
 
-// Abstraction
+
 public abstract class Library
 {
     protected ILibraryDetails _libraryDetails;
@@ -76,7 +76,7 @@ public abstract class Library
     public abstract string GetHexBookFund();
 }
 
-// Refined Abstraction: School Library
+
 public class SchoolLibrary : Library
 {
     public SchoolLibrary(ILibraryDetails libraryDetails) : base(libraryDetails)
@@ -85,7 +85,7 @@ public class SchoolLibrary : Library
 
     public override string ToString()
     {
-        return $"{Name}, {_libraryDetails.GetReadingRoomSeats()}, {_libraryDetails.GetFoundedYear()}, " +
+        return $"{Name},Школьная, {_libraryDetails.GetReadingRoomSeats()}, {_libraryDetails.GetFoundedYear()}, " +
                $"{_libraryDetails.GetBookFund()}, Has Digital Library: {_libraryDetails.GetHasDigitalLibrary()}";
     }
 
@@ -100,7 +100,7 @@ public class SchoolLibrary : Library
     }
 }
 
-// Refined Abstraction: University Library
+
 public class UniversityLibrary : Library
 {
     public UniversityLibrary(ILibraryDetails libraryDetails) : base(libraryDetails)
@@ -109,13 +109,13 @@ public class UniversityLibrary : Library
 
     public override string ToString()
     {
-        return $"{Name}, {_libraryDetails.GetReadingRoomSeats()}, {_libraryDetails.GetFoundedYear()}, " +
+        return $"{Name},Университетская, {_libraryDetails.GetReadingRoomSeats()}, {_libraryDetails.GetFoundedYear()}, " +
                $"{_libraryDetails.GetBookFund()}, Has Digital Library: {_libraryDetails.GetHasDigitalLibrary()}";
     }
 
     public override string GetField(string fieldName)
     {
-        return _libraryDetails.GetField(fieldName, Name); // Pass Name
+        return _libraryDetails.GetField(fieldName, Name); 
     }
 
     public override string GetHexBookFund()

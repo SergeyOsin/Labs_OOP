@@ -40,6 +40,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.standartConstruct = new System.Windows.Forms.CheckBox();
             this.builder = new System.Windows.Forms.CheckBox();
             this.btnUpdateFields = new System.Windows.Forms.Button();
@@ -51,14 +52,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.sixteenx = new System.Windows.Forms.Label();
             this.textfromcont = new System.Windows.Forms.Label();
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ContainerLibraries = new System.Windows.Forms.ListView();
-            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnRunTest = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -67,7 +60,14 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.listViewforTests = new System.Windows.Forms.ListView();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ContainerLibraries = new System.Windows.Forms.ListView();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,7 +78,7 @@
             this.txtName.Location = new System.Drawing.Point(4, 25);
             this.txtName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(181, 26);
+            this.txtName.Size = new System.Drawing.Size(186, 26);
             this.txtName.TabIndex = 1;
             this.txtName.Text = "Библиотека";
             // 
@@ -101,7 +101,7 @@
             this.txtBookFund.Location = new System.Drawing.Point(4, 81);
             this.txtBookFund.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtBookFund.Name = "txtBookFund";
-            this.txtBookFund.Size = new System.Drawing.Size(181, 26);
+            this.txtBookFund.Size = new System.Drawing.Size(186, 26);
             this.txtBookFund.TabIndex = 3;
             this.txtBookFund.Text = "100";
             // 
@@ -112,7 +112,7 @@
             this.txtSeats.Location = new System.Drawing.Point(4, 137);
             this.txtSeats.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtSeats.Name = "txtSeats";
-            this.txtSeats.Size = new System.Drawing.Size(181, 26);
+            this.txtSeats.Size = new System.Drawing.Size(186, 26);
             this.txtSeats.TabIndex = 5;
             this.txtSeats.Text = "100";
             // 
@@ -145,7 +145,7 @@
             // btnClose_Click
             // 
             this.btnClose_Click.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose_Click.Location = new System.Drawing.Point(1259, 619);
+            this.btnClose_Click.Location = new System.Drawing.Point(1264, 619);
             this.btnClose_Click.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnClose_Click.Name = "btnClose_Click";
             this.btnClose_Click.Size = new System.Drawing.Size(184, 54);
@@ -177,9 +177,9 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.btnShowHex);
             this.panel1.Controls.Add(this.btnCreateLibrary);
-            this.panel1.Location = new System.Drawing.Point(3, 120);
+            this.panel1.Location = new System.Drawing.Point(3, 117);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(431, 625);
+            this.panel1.Size = new System.Drawing.Size(436, 628);
             this.panel1.TabIndex = 28;
             // 
             // txtphonenumber
@@ -189,7 +189,7 @@
             this.txtphonenumber.Location = new System.Drawing.Point(4, 249);
             this.txtphonenumber.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtphonenumber.Name = "txtphonenumber";
-            this.txtphonenumber.Size = new System.Drawing.Size(181, 26);
+            this.txtphonenumber.Size = new System.Drawing.Size(186, 26);
             this.txtphonenumber.TabIndex = 26;
             this.txtphonenumber.Text = "1999";
             // 
@@ -217,7 +217,7 @@
             // 
             // label7
             // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(265, 0);
@@ -226,6 +226,19 @@
             this.label7.Size = new System.Drawing.Size(130, 20);
             this.label7.TabIndex = 23;
             this.label7.Text = "Тип библиотеки";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Школьная",
+            "Университетская"});
+            this.comboBox1.Location = new System.Drawing.Point(243, 23);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(185, 28);
+            this.comboBox1.TabIndex = 22;
             // 
             // standartConstruct
             // 
@@ -259,7 +272,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnUpdateFields.Location = new System.Drawing.Point(4, 436);
             this.btnUpdateFields.Name = "btnUpdateFields";
-            this.btnUpdateFields.Size = new System.Drawing.Size(217, 54);
+            this.btnUpdateFields.Size = new System.Drawing.Size(222, 54);
             this.btnUpdateFields.TabIndex = 13;
             this.btnUpdateFields.Text = "Обновить";
             this.btnUpdateFields.UseVisualStyleBackColor = true;
@@ -283,7 +296,7 @@
             this.txtFoundedYear.Location = new System.Drawing.Point(4, 193);
             this.txtFoundedYear.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtFoundedYear.Name = "txtFoundedYear";
-            this.txtFoundedYear.Size = new System.Drawing.Size(181, 26);
+            this.txtFoundedYear.Size = new System.Drawing.Size(186, 26);
             this.txtFoundedYear.TabIndex = 9;
             this.txtFoundedYear.Text = "1999";
             // 
@@ -306,7 +319,7 @@
             this.btnShowHex.Location = new System.Drawing.Point(4, 497);
             this.btnShowHex.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnShowHex.Name = "btnShowHex";
-            this.btnShowHex.Size = new System.Drawing.Size(217, 54);
+            this.btnShowHex.Size = new System.Drawing.Size(222, 54);
             this.btnShowHex.TabIndex = 18;
             this.btnShowHex.Text = "Показать фонд в 16-ричном формате";
             this.btnShowHex.UseVisualStyleBackColor = true;
@@ -319,7 +332,7 @@
             this.btnCreateLibrary.Location = new System.Drawing.Point(0, 306);
             this.btnCreateLibrary.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCreateLibrary.Name = "btnCreateLibrary";
-            this.btnCreateLibrary.Size = new System.Drawing.Size(217, 54);
+            this.btnCreateLibrary.Size = new System.Drawing.Size(222, 54);
             this.btnCreateLibrary.TabIndex = 12;
             this.btnCreateLibrary.Text = "Создать библиотеку";
             this.btnCreateLibrary.UseVisualStyleBackColor = true;
@@ -329,7 +342,7 @@
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft YaHei", 14F, System.Drawing.FontStyle.Bold);
-            this.label10.Location = new System.Drawing.Point(730, 9);
+            this.label10.Location = new System.Drawing.Point(733, 9);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(191, 37);
@@ -352,6 +365,87 @@
             this.textfromcont.Name = "textfromcont";
             this.textfromcont.Size = new System.Drawing.Size(0, 20);
             this.textfromcont.TabIndex = 41;
+            // 
+            // btnRunTest
+            // 
+            this.btnRunTest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRunTest.Location = new System.Drawing.Point(1093, 555);
+            this.btnRunTest.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnRunTest.Name = "btnRunTest";
+            this.btnRunTest.Size = new System.Drawing.Size(184, 54);
+            this.btnRunTest.TabIndex = 39;
+            this.btnRunTest.Text = "Выполнить тест замер";
+            this.btnRunTest.UseVisualStyleBackColor = true;
+            this.btnRunTest.Click += new System.EventHandler(this.btnRunTest_Click);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(2, 62);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(253, 30);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "Создание библиотек";
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(458, 556);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(184, 54);
+            this.button1.TabIndex = 33;
+            this.button1.Text = "Удалить библиотеку";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.Location = new System.Drawing.Point(662, 555);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(184, 54);
+            this.button2.TabIndex = 34;
+            this.button2.Text = "Очистить контейнер";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Tag = "ColumnHeader";
+            this.columnHeader1.Text = "Тип опер.";
+            this.columnHeader1.Width = 70;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Стр. данных";
+            this.columnHeader2.Width = 85;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Время (мс)";
+            this.columnHeader3.Width = 70;
+            // 
+            // listViewforTests
+            // 
+            this.listViewforTests.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listViewforTests.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3});
+            this.listViewforTests.HideSelection = false;
+            this.listViewforTests.Location = new System.Drawing.Point(1093, 117);
+            this.listViewforTests.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.listViewforTests.Name = "listViewforTests";
+            this.listViewforTests.Size = new System.Drawing.Size(356, 428);
+            this.listViewforTests.TabIndex = 38;
+            this.listViewforTests.UseCompatibleStateImageBehavior = false;
+            this.listViewforTests.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader4
             // 
@@ -385,6 +479,11 @@
             this.columnHeader9.Text = "Телефон";
             this.columnHeader9.Width = 70;
             // 
+            // columnHeader10
+            // 
+            this.columnHeader10.Text = "Цифр. библиотека?";
+            this.columnHeader10.Width = 70;
+            // 
             // ContainerLibraries
             // 
             this.ContainerLibraries.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -398,116 +497,19 @@
             this.columnHeader9,
             this.columnHeader10});
             this.ContainerLibraries.HideSelection = false;
-            this.ContainerLibraries.Location = new System.Drawing.Point(453, 118);
+            this.ContainerLibraries.Location = new System.Drawing.Point(458, 118);
             this.ContainerLibraries.Name = "ContainerLibraries";
             this.ContainerLibraries.Size = new System.Drawing.Size(628, 428);
             this.ContainerLibraries.TabIndex = 40;
             this.ContainerLibraries.UseCompatibleStateImageBehavior = false;
             this.ContainerLibraries.View = System.Windows.Forms.View.Details;
             // 
-            // columnHeader10
-            // 
-            this.columnHeader10.Text = "Цифр. библиотека?";
-            this.columnHeader10.Width = 70;
-            // 
-            // btnRunTest
-            // 
-            this.btnRunTest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRunTest.Location = new System.Drawing.Point(1087, 555);
-            this.btnRunTest.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnRunTest.Name = "btnRunTest";
-            this.btnRunTest.Size = new System.Drawing.Size(184, 54);
-            this.btnRunTest.TabIndex = 39;
-            this.btnRunTest.Text = "Выполнить тест замер";
-            this.btnRunTest.UseVisualStyleBackColor = true;
-            this.btnRunTest.Click += new System.EventHandler(this.btnRunTest_Click);
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(2, 62);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(253, 30);
-            this.label1.TabIndex = 26;
-            this.label1.Text = "Создание библиотек";
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(453, 556);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(184, 54);
-            this.button1.TabIndex = 33;
-            this.button1.Text = "Удалить библиотеку";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(657, 555);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(184, 54);
-            this.button2.TabIndex = 34;
-            this.button2.Text = "Очистить контейнер";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Tag = "ColumnHeader";
-            this.columnHeader1.Text = "Тип опер.";
-            this.columnHeader1.Width = 70;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Стр. данных";
-            this.columnHeader2.Width = 85;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Время (мс)";
-            this.columnHeader3.Width = 70;
-            // 
-            // listViewforTests
-            // 
-            this.listViewforTests.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listViewforTests.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3});
-            this.listViewforTests.HideSelection = false;
-            this.listViewforTests.Location = new System.Drawing.Point(1087, 118);
-            this.listViewforTests.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.listViewforTests.Name = "listViewforTests";
-            this.listViewforTests.Size = new System.Drawing.Size(356, 428);
-            this.listViewforTests.TabIndex = 38;
-            this.listViewforTests.UseCompatibleStateImageBehavior = false;
-            this.listViewforTests.View = System.Windows.Forms.View.Details;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Школьная",
-            "Университетская"});
-            this.comboBox1.Location = new System.Drawing.Point(243, 23);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(185, 28);
-            this.comboBox1.TabIndex = 22;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1535, 762);
+            this.ClientSize = new System.Drawing.Size(1540, 762);
             this.Controls.Add(this.textfromcont);
             this.Controls.Add(this.ContainerLibraries);
             this.Controls.Add(this.btnRunTest);
@@ -546,13 +548,6 @@
         private System.Windows.Forms.CheckBox builder;
         private System.Windows.Forms.CheckBox standartConstruct;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
-        private System.Windows.Forms.ColumnHeader columnHeader6;
-        private System.Windows.Forms.ColumnHeader columnHeader7;
-        private System.Windows.Forms.ColumnHeader columnHeader8;
-        private System.Windows.Forms.ColumnHeader columnHeader9;
-        private System.Windows.Forms.ListView ContainerLibraries;
         private System.Windows.Forms.Button btnRunTest;
         private System.Windows.Forms.TextBox txtFoundedYear;
         private System.Windows.Forms.Label label1;
@@ -570,8 +565,15 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.TextBox txtphonenumber;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ColumnHeader columnHeader10;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.ColumnHeader columnHeader10;
+        private System.Windows.Forms.ListView ContainerLibraries;
     }
 }
 
