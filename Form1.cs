@@ -15,7 +15,7 @@ namespace _1_Lab_Library
     {
         private int max_libraries;
         private Collections collections;
-        private Library currentLibrary; // Храним созданную библиотеку
+        private Library currentLibrary; 
         public Form1(int _max_libraries)
         {
             this.max_libraries = _max_libraries;
@@ -54,9 +54,9 @@ namespace _1_Lab_Library
 
             try
             {
-                if (collections.Count >= max_libraries) // Исправлено на >=
+                if (collections.Count >= max_libraries) 
                 {
-                    throw new Exception("Превышено количество библиотек"); // Исправлено на Exception
+                    throw new Exception("Превышено количество библиотек"); 
                 }
 
                 int bookFund = int.Parse(bookFundText);
@@ -73,14 +73,14 @@ namespace _1_Lab_Library
                     {
                         currentLibrary = new SchoolLibrary(libraryDetails);
                     }
-                    else // Университетская библиотека
+                    else 
                     {
                         currentLibrary = new UniversityLibrary(libraryDetails);
                     }
 
                     currentLibrary.Name = name;
                 }
-                else if (builder.Checked) // Строитель (Builder)
+                else if (builder.Checked) 
                 {
                     // Определяем тип библиотеки
                     LibraryBuilder.LibraryType libraryType = comboBox1.SelectedIndex == 0
@@ -108,7 +108,7 @@ namespace _1_Lab_Library
 
                 // Добавляем библиотеку в ListView
                 ListViewItem item = new ListViewItem(name);
-                item.SubItems.Add(comboBox1.SelectedItem.ToString()); // Тип библиотеки
+                item.SubItems.Add(comboBox1.SelectedItem.ToString()); 
                 item.SubItems.Add(bookFund.ToString());
                 item.SubItems.Add(seats.ToString());
                 item.SubItems.Add(foundedYear.ToString());
@@ -270,46 +270,46 @@ namespace _1_Lab_Library
         }
         private void MeasurePerformance()
         {
-            //int count = 10000000;
-            //Dictionary<int, Library> libraryDict = new Dictionary<int, Library>();
-            //Library[] libraryArray = new Library[count];
-            //Random random = new Random();
-            //Stopwatch stopwatch = new Stopwatch();
-            //// Очистка ListView перед новым тестом
-            //listViewforTests.Items.Clear();
-            //stopwatch.Start();
-            //for (int i = 0; i < count; i++)
-            //{
-            //    Library lib = new Library($"Библиотека {i}", random.Next(100, 10000));
-            //    libraryDict[i] = lib;
-            //    libraryArray[i] = lib;
-            //}
-            //stopwatch.Stop();
-            //listViewforTests.Items.Add(new ListViewItem(new[] { "Заполнение", "Dictionary", stopwatch.ElapsedMilliseconds.ToString() }));
-            //listViewforTests.Items.Add(new ListViewItem(new[] { "Заполнение", "Array", stopwatch.ElapsedMilliseconds.ToString() }));
+            int count = 1000000;
+            Dictionary<int, LibraryBuilder> libraryDict = new Dictionary<int, LibraryBuilder>();
+            LibraryBuilder[] libraryArray = new LibraryBuilder[count];
+            Random random = new Random();
+            Stopwatch stopwatch = new Stopwatch();
+            // Очистка ListView перед новым тестом
+            listViewforTests.Items.Clear();
+            stopwatch.Start();
+            for (int i = 0; i < count; i++)
+            {
+                LibraryBuilder lib = new LibraryBuilder();
+                libraryDict[i] = lib;
+                libraryArray[i] = lib;
+            }
+            stopwatch.Stop();
+            listViewforTests.Items.Add(new ListViewItem(new[] { "Заполнение", "Dictionary", stopwatch.ElapsedMilliseconds.ToString() }));
+            listViewforTests.Items.Add(new ListViewItem(new[] { "Заполнение", "Array", stopwatch.ElapsedMilliseconds.ToString() }));
 
 
-            //stopwatch.Restart();
-            //foreach (var item in libraryDict.Values) { var temp = item.Name; }
-            //stopwatch.Stop();
-            //listViewforTests.Items.Add(new ListViewItem(new[] { "Последовательный доступ", "Dictionary", stopwatch.ElapsedMilliseconds.ToString() }));
+            stopwatch.Restart();
+            foreach (var item in libraryDict.Values) { var temp = item.SetName; }
+            stopwatch.Stop();
+            listViewforTests.Items.Add(new ListViewItem(new[] { "Последовательный доступ", "Dictionary", stopwatch.ElapsedMilliseconds.ToString() }));
 
-            //stopwatch.Restart();
-            //foreach (var item in libraryArray) { var temp = item.Name; }
-            //stopwatch.Stop();
-            //listViewforTests.Items.Add(new ListViewItem(new[] { "Последовательный доступ", "Array", stopwatch.ElapsedMilliseconds.ToString() }));
+            stopwatch.Restart();
+            foreach (var item in libraryArray) { var temp = item.SetName; }
+            stopwatch.Stop();
+            listViewforTests.Items.Add(new ListViewItem(new[] { "Последовательный доступ", "Array", stopwatch.ElapsedMilliseconds.ToString() }));
 
-            //// 3️. Случайный доступ к 100 000 элементам
-            //stopwatch.Restart();
-            //for (int i = 0; i < count; i++) { var temp = libraryDict[random.Next(count)].Name; }
-            //stopwatch.Stop();
-            //listViewforTests.Items.Add(new ListViewItem(new[] { "Случайный доступ", "Dictionary", stopwatch.ElapsedMilliseconds.ToString() }));
+            // 3️. Случайный доступ к 100 000 элементам
+            stopwatch.Restart();
+            for (int i = 0; i < count; i++) { var temp = libraryDict[random.Next(count)].SetName; }
+            stopwatch.Stop();
+            listViewforTests.Items.Add(new ListViewItem(new[] { "Случайный доступ", "Dictionary", stopwatch.ElapsedMilliseconds.ToString() }));
 
-            //stopwatch.Restart();
-            //for (int i = 0; i < count; i++) { var temp = libraryArray[random.Next(count)].Name; }
-            //stopwatch.Stop();
-            //listViewforTests.Items.Add(new ListViewItem(new[] { "Случайный доступ", "Array", stopwatch.ElapsedMilliseconds.ToString() }));
-            //MessageBox.Show("Тестирование завершено!", "Готово", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            stopwatch.Restart();
+            for (int i = 0; i < count; i++) { var temp = libraryArray[random.Next(count)].SetName; }
+            stopwatch.Stop();
+            listViewforTests.Items.Add(new ListViewItem(new[] { "Случайный доступ", "Array", stopwatch.ElapsedMilliseconds.ToString() }));
+            MessageBox.Show("Тестирование завершено!", "Готово", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnRunTest_Click(object sender, EventArgs e)
