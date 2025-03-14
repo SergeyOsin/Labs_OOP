@@ -263,7 +263,6 @@
             this.btnUpdateFields.TabIndex = 13;
             this.btnUpdateFields.Text = "Обновить";
             this.btnUpdateFields.UseVisualStyleBackColor = true;
-            this.btnUpdateFields.Click += new System.EventHandler(this.btnUpdateFields_Click);
             // 
             // label5
             // 

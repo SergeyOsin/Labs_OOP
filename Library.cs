@@ -23,7 +23,7 @@ public class LibraryDetails : ILibraryDetails
 
     public LibraryDetails(string _name,int bookFund, int readingRoomSeats, int foundedYear, string phoneNumber, bool hasDigitalLibrary)
     {
-        _name = Name;
+        Name = _name;
         BookFund = bookFund;
         ReadingRoomSeats = readingRoomSeats;
         FoundedYear = foundedYear;
