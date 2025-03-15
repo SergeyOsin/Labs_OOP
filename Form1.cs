@@ -107,7 +107,7 @@ namespace _1_Lab_Library
                 collections.AddLibrary(currentLibrary);
 
                 // Добавляем библиотеку в ListView
-                ListViewItem item = new ListViewItem(name);
+                ListViewItem item = new ListViewItem(currentLibrary.Name);
                 item.SubItems.Add(comboBox1.SelectedItem.ToString()); 
                 item.SubItems.Add(bookFund.ToString());
                 item.SubItems.Add(seats.ToString());
@@ -116,6 +116,7 @@ namespace _1_Lab_Library
                 item.SubItems.Add(hasDigitalLibrary?"Да":"Нет");
                 ContainerLibraries.Items.Add(item);
                 lblObjectCount.Text = $"Количество библиотек: {collections.Count}";
+                sixteenx.Text = currentLibrary.GetHexBookFund();
                 
             }
             catch (FormatException)
@@ -131,8 +132,7 @@ namespace _1_Lab_Library
         {
             if (currentLibrary != null)
             {
-                int number = int.Parse(txtBookFund.Text);
-                sixteenx.Text = $"Фонд в 16-ричной СС: {Convert.ToString(number, 16)}";
+                sixteenx.Text = currentLibrary.GetHexBookFund();
             }
             else
             {
@@ -191,7 +191,6 @@ namespace _1_Lab_Library
         {
             if (ContainerLibraries.Items.Count == 0)
                 throw new Exception("Контейнер пуст");
-
             ContainerLibraries.Items.Clear();
             collections.Clear(); // Очистка коллекции
             lblObjectCount.Text = $"Количество библиотек: {collections.Count}";
@@ -233,17 +232,13 @@ namespace _1_Lab_Library
                     {
                         throw new InvalidOperationException("Неизвестный тип библиотеки");
                     }
-
                     updatedLibrary.Name = name;
-
                     // Обновляем библиотеку в коллекции
                     collections.UpdateLibrary(name, updatedLibrary);
-
                     // Обновляем текущую библиотеку
                     currentLibrary = updatedLibrary;
-
                     // Обновляем ListView
-                    selectedItem.SubItems[0].Text = name;
+                    selectedItem.SubItems[0].Text = currentLibrary.Name;
                     selectedItem.SubItems[1].Text = comboBox1.SelectedItem.ToString();
                     selectedItem.SubItems[2].Text = bookFund.ToString();
                     selectedItem.SubItems[3].Text = seats.ToString();
@@ -252,7 +247,7 @@ namespace _1_Lab_Library
                     selectedItem.SubItems[6].Text = hasDigitalLibrary ? "Да" : "Нет";
 
                     // Обновляем отображение 16-ричного формата фонда книг
-                    sixteenx.Text = $"Фонд в 16-ричной СС: {bookFund:X}";
+                    sixteenx.Text = updatedDetails.GetHexBookFund();
                 }
                 catch (FormatException)
                 {
